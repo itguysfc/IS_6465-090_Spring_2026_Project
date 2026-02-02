@@ -1,0 +1,102 @@
+/* Bubbles Fish Supply - Main Stylesheet */
+
+/* CSS Variables */
+:root {
+    --primary-blue: #0077b6;
+    --light-blue: #00b4d8;
+    --accent-cyan: #90e0ef;
+    --dark-blue: #023e8a;
+    --accent-orange: #f77f00;
+}
+
+/* Custom Background & Text Colors */
+.bg-gradient-blue {
+    background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+}
+
+.text-primary-blue {
+    color: var(--primary-blue);
+}
+
+.text-accent-cyan {
+    color: var(--accent-cyan);
+}
+
+.bg-dark-blue {
+    background-color: var(--dark-blue);
+}
+
+/* Custom Button */
+.btn-orange {
+    background-color: var(--accent-orange);
+    color: white;
+    border: none;
+}
+
+.btn-orange:hover {
+    background-color: #e07000;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(247, 127, 0, 0.4);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0, 119, 182, 0.8), rgba(0, 180, 216, 0.8)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="30" r="3" fill="%2390e0ef" opacity="0.3"/><circle cx="80" cy="20" r="2" fill="%2390e0ef" opacity="0.4"/><circle cx="50" cy="60" r="4" fill="%2390e0ef" opacity="0.2"/><circle cx="70" cy="80" r="2" fill="%2390e0ef" opacity="0.3"/><circle cx="30" cy="70" r="3" fill="%2390e0ef" opacity="0.25"/></svg>');
+    min-height: 500px;
+}
+
+.hero-section h1 {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Category Cards */
+.category-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15) !important;
+}
+
+.category-icon {
+    font-size: 4rem;
+}
+
+/* Feature Icons */
+.feature-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--light-blue);
+}
+
+/* About Image */
+.about-image {
+    background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+    height: 400px;
+    font-size: 8rem;
+}
+
+/* Contact Icons */
+.contact-icon {
+    font-size: 2rem;
+}
+
+/* Navigation Hover */
+.navbar-nav .nav-link:hover {
+    color: var(--accent-cyan) !important;
+}
+
+/* Footer Links Hover */
+footer a:hover {
+    color: var(--accent-cyan) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-image {
+        height: 250px;
+    }
+}
