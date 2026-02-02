@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubbles - Your Premier Fish Supply Store</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #0077b6, #00b4d8);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo span {
+            color: #90e0ef;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #90e0ef;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 119, 182, 0.8), rgba(0, 180, 216, 0.8)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="30" r="3" fill="%2390e0ef" opacity="0.3"/><circle cx="80" cy="20" r="2" fill="%2390e0ef" opacity="0.4"/><circle cx="50" cy="60" r="4" fill="%2390e0ef" opacity="0.2"/><circle cx="70" cy="80" r="2" fill="%2390e0ef" opacity="0.3"/><circle cx="30" cy="70" r="3" fill="%2390e0ef" opacity="0.25"/></svg>');
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #f77f00;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(247, 127, 0, 0.4);
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .categories h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #0077b6;
+            margin-bottom: 3rem;
+        }
+
+        .category-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .category-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-card h3 {
+            color: #0077b6;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-card p {
+            color: #666;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: #0077b6;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: #555;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: #00b4d8;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #0077b6, #00b4d8);
+            border-radius: 20px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 8rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #0077b6, #00b4d8);
+            color: white;
+        }
+
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item span:first-child {
+            font-size: 2rem;
+        }
+
+        .contact-item strong {
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #023e8a;
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #90e0ef;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #90e0ef;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid #0077b6;
+            text-align: center;
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+                height: 250px;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Bubbles<span>.</span></a>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Welcome to Bubbles</h1>
+        <p>Your one-stop shop for all things aquatic. From vibrant fish to premium supplies, we have everything to keep your underwater world thriving.</p>
+        <a href="#products" class="btn">Shop Now</a>
+    </section>
+
+    <section id="products" class="categories">
+        <h2>Our Products</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <div class="category-icon">&#128031;</div>
+                <h3>Live Fish</h3>
+                <p>Tropical, freshwater, and saltwater fish from trusted breeders worldwide.</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">&#127748;</div>
+                <h3>Aquariums</h3>
+                <p>Tanks of all sizes, from desktop bowls to stunning display aquariums.</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">&#9881;</div>
+                <h3>Equipment</h3>
+                <p>Filters, heaters, lights, and pumps to maintain the perfect environment.</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">&#127807;</div>
+                <h3>Plants & Decor</h3>
+                <p>Live plants, rocks, driftwood, and decorations to beautify your tank.</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">&#127860;</div>
+                <h3>Fish Food</h3>
+                <p>Premium flakes, pellets, frozen, and live foods for every species.</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">&#128167;</div>
+                <h3>Water Care</h3>
+                <p>Conditioners, test kits, and treatments to keep water crystal clear.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Why Choose Bubbles?</h2>
+                <p>For over 15 years, Bubbles has been the trusted name in aquarium supplies. Our passion for fishkeeping drives us to provide only the best products and expert advice to hobbyists of all levels.</p>
+                <p>Whether you're setting up your first tank or expanding a collection, our knowledgeable team is here to help you succeed.</p>
+                <div class="about-features">
+                    <div class="feature">
+                        <div class="feature-icon">&#10003;</div>
+                        <span>Expert Staff</span>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">&#10003;</div>
+                        <span>Quality Guaranteed</span>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">&#10003;</div>
+                        <span>Fast Shipping</span>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">&#10003;</div>
+                        <span>Live Arrival Guarantee</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">&#128032;</div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-content">
+            <h2>Visit Us Today</h2>
+            <p>Stop by our store or reach out online. We'd love to help with your aquatic journey!</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>&#128205;</span>
+                    <strong>Location</strong>
+                    <span>123 Aquarium Lane<br>Coral City, FL 33101</span>
+                </div>
+                <div class="contact-item">
+                    <span>&#128222;</span>
+                    <strong>Phone</strong>
+                    <span>(555) 123-FISH</span>
+                </div>
+                <div class="contact-item">
+                    <span>&#128231;</span>
+                    <strong>Email</strong>
+                    <span>hello@bubblesfish.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>&#128336;</span>
+                    <strong>Hours</strong>
+                    <span>Mon-Sat: 9am-7pm<br>Sun: 10am-5pm</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Bubbles</h4>
+                <p>Your premier destination for all fish and aquarium supplies since 2011.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">Live Fish</a></li>
+                    <li><a href="#">Aquariums</a></li>
+                    <li><a href="#">Equipment</a></li>
+                    <li><a href="#">Food & Care</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Care Guides</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Bubbles Fish Supply. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
