@@ -21,6 +21,7 @@
                     <li class="nav-item"><a href="products.php" class="nav-link text-white fw-medium<?php echo ($currentPage ?? '') === 'products' ? ' active' : ''; ?>">Products</a></li>
                     <li class="nav-item"><a href="about.php" class="nav-link text-white fw-medium<?php echo ($currentPage ?? '') === 'about' ? ' active' : ''; ?>">About</a></li>
                     <li class="nav-item"><a href="contact.php" class="nav-link text-white fw-medium<?php echo ($currentPage ?? '') === 'contact' ? ' active' : ''; ?>">Contact</a></li>
+                    <li class="nav-item"><a href="login.php" class="nav-link text-white fw-medium<?php echo ($currentPage ?? '') === 'login' ? ' active' : ''; ?>">Login</a></li>
                 </ul>
             </div>
         </nav>
