@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for dir in about admin images payment products users)",
+      "Bash(do ls -A \"f:/wamp/www/FISH/$dir\")",
+      "Bash(echo:*)",
+      "Bash(done)"
+    ]
+  }
+}
