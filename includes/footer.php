@@ -9,10 +9,10 @@
                 <div class="col-md-6 col-lg-3">
                     <h4 class="text-accent-cyan mb-3">Quick Links</h4>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="index.php" class="text-white-50 text-decoration-none">Home</a></li>
-                        <li class="mb-2"><a href="products.php" class="text-white-50 text-decoration-none">Products</a></li>
-                        <li class="mb-2"><a href="about.php" class="text-white-50 text-decoration-none">About Us</a></li>
-                        <li class="mb-2"><a href="contact.php" class="text-white-50 text-decoration-none">Contact</a></li>
+                        <li class="mb-2"><a href="/FIshrUs/IS_6465-090_Spring_2026_Project/index.php" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="/FIshrUs/IS_6465-090_Spring_2026_Project/products.php" class="text-white-50 text-decoration-none">Products</a></li>
+                        <li class="mb-2"><a href="/FIshrUs/IS_6465-090_Spring_2026_Project/about.php" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="/FIshrUs/IS_6465-090_Spring_2026_Project/contact.php" class="text-white-50 text-decoration-none">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-md-6 col-lg-3">
