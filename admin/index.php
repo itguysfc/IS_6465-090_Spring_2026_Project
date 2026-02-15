@@ -45,7 +45,7 @@ include '../includes/header.php';
     </div>
 
     <div class="mt-5 text-center">
-        <a href="/FIshrUs/IS_6465-090_Spring_2026_Project/index.php" class="btn btn-secondary">
+        <a href="/fish/index.php" class="btn btn-secondary">
             <i class="bi bi-arrow-left"></i> Back to Home
         </a>
     </div>
